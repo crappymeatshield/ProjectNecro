@@ -25,6 +25,7 @@ public class zombieAI : Keybinds
     private GameObject closestenemy;
     private GameObject maincam;
     private float CEdist = 0.0f;
+    private Stats stats;
 	// Use this for initialization
 	void Start () {
         master = GameObject.FindGameObjectWithTag("Player");
@@ -34,6 +35,7 @@ public class zombieAI : Keybinds
         closestenemy = null;
         CEdist = Mathf.Infinity;
         rb2d = GetComponent<Rigidbody2D>();
+        stats = GetComponent<Stats>();
 	}
 	
 	// Update is called once per frame
@@ -171,7 +173,7 @@ public class zombieAI : Keybinds
         try
         {
             Enemy econtrol = targettohit.GetComponent<Enemy>();
-            econtrol.stats.health -= 10;
+            econtrol.stats.enemyTakeDamage(stats.strength, stats.magic);
         }
         catch(Exception)
         { }

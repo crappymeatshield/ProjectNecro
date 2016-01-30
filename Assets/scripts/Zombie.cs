@@ -9,7 +9,7 @@ public class Zombie : MonoBehaviour {
 	void Start () {
         stats = gameObject.GetComponent<Stats>();
         stats.health = 80;
-        stats.strength = 70;
+        stats.strength = 80;
         stats.defense = 20;
         stats.magic = 0;
 	}

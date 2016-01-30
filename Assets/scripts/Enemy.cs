@@ -107,10 +107,6 @@ public class Enemy: MonoBehaviour
         {
             rb2d.Sleep();
         }
-        if(stats.health<=0)
-        {
-            Destroy(this.gameObject);
-        }
     }
 
     void Attack()
