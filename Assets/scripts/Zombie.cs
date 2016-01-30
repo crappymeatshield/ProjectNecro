@@ -8,10 +8,9 @@ public class Zombie : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         stats.GetComponent<Stats>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-	
+        stats.health = 80;
+        stats.strength = 70;
+        stats.defense = 20;
+        stats.magic = 0;
 	}
 }
