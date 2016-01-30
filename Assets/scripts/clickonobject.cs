@@ -12,7 +12,7 @@ public class clickonobject : MonoBehaviour {
             RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f);
             if (hit)
             {
-                if (hit.transform.tag == "Enemy")
+                if (hit.transform.tag == "Enemy" || hit.transform.tag == "ShootingEnemy")
                 {
                     clickedobj = hit.transform.gameObject;
                 }

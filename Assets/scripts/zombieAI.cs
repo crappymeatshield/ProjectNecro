@@ -20,6 +20,7 @@ public class zombieAI : MonoBehaviour {
     private ZecromancerController control;
     private bool attack = false;
     private GameObject[] enemies;
+    private GameObject[] shootingenemies;
     private GameObject closestenemy;
     private GameObject maincam;
     private float CEdist = 0.0f;
@@ -28,6 +29,7 @@ public class zombieAI : MonoBehaviour {
         master = GameObject.FindGameObjectWithTag("Player");
         control = master.GetComponent<ZecromancerController>();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        shootingenemies = GameObject.FindGameObjectsWithTag("ShootingEnemy");
         closestenemy = null;
         CEdist = Mathf.Infinity;
         rb2d = GetComponent<Rigidbody2D>();
@@ -45,6 +47,7 @@ public class zombieAI : MonoBehaviour {
             if (closestenemy == null)
             {
                 enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                shootingenemies = GameObject.FindGameObjectsWithTag("ShootingEnemy");
                 CEdist = Mathf.Infinity;
                 for(int i =0; i<enemies.Length; i++)
                 {
@@ -52,6 +55,14 @@ public class zombieAI : MonoBehaviour {
                     {
                         closestenemy = enemies[i];
                         CEdist = Vector2.Distance(enemies[i].transform.position, transform.position);
+                    }
+                }
+                for (int i = 0; i < shootingenemies.Length; i++)
+                {
+                    if (CEdist > Vector2.Distance(shootingenemies[i].transform.position, transform.position))
+                    {
+                        closestenemy = enemies[i];
+                        CEdist = Vector2.Distance(shootingenemies[i].transform.position, transform.position);
                     }
                 }
             }
@@ -154,8 +165,8 @@ public class zombieAI : MonoBehaviour {
     {
         try
         {
-            enemycontroller econtrol = targettohit.GetComponent<enemycontroller>();
-            econtrol.Health -= 10;
+            Enemy econtrol = targettohit.GetComponent<Enemy>();
+            econtrol.stats.health -= 10;
         }
         catch(Exception)
         { }

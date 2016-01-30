@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Enemy: MonoBehaviour
 {
-
     public bool playerInSight;
     public GameObject player;
     public float sightLengthAway = 20.0f;
@@ -75,6 +74,10 @@ public class Enemy: MonoBehaviour
         else
         {
             rb2d.Sleep();
+        }
+        if(stats.health<=0)
+        {
+            Destroy(this.gameObject);
         }
     }
 
