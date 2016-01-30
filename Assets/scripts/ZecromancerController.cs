@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class ZecromancerController : MonoBehaviour {
-    public int speed = 5;
     public bool aggressive = false;
 	// Use this for initialization
 	void Start () {
