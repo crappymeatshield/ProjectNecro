@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class Stats : MonoBehaviour
 {
@@ -22,7 +23,12 @@ public class Stats : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            Destroy(this.gameObject);
+            try
+            {
+                Destroy(this.gameObject);
+            }
+            catch (Exception)
+            {}
         }
     }
 

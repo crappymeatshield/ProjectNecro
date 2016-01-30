@@ -6,14 +6,14 @@ public class Enemy: MonoBehaviour
 
     public bool playerInSight;
     public GameObject player;
-    public float sightLengthAway = 20.0f;
+    public float sightLengthAway = 15.0f;
     private Stats health;
     public GameObject enemy;
     public GameObject shootingEnemy;
     public float timeOfLastAttack;
     public float secondsBetweenAttacks = 1.0f;
     public Rigidbody2D rb2d;
-    public float lengthAway = 3.0f;
+    public float lengthAway = 1.0f;
     public float shootingLengthAway = 10.0f;
     Vector2 follow;
     public float speed = 100.0f;
