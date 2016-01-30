@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : Keybinds
+{
     
     public float speed = 200.0f;
     public Rigidbody2D rb2d;
@@ -28,8 +29,21 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         rb2d.velocity = Vector2.zero;
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        //float x = Input.GetAxis("Horizontal");
+        float y=0;
+        if (Input.GetKey(ControllerConfig[0][0]) || Input.GetKey(ControllerConfig[0][1]))
+            y = 1;
+        else if (Input.GetKey(ControllerConfig[1][0]) || Input.GetKey(ControllerConfig[1][1]))
+            y = -1;
+        else
+            y = 0;
+        float x = 0; //Input.GetAxis("Vertical");
+        if (Input.GetKey(ControllerConfig[2][0]) || Input.GetKey(ControllerConfig[2][1]))
+            x = 1;
+        else if (Input.GetKey(ControllerConfig[3][0]) || Input.GetKey(ControllerConfig[3][1]))
+            x = -1;
+        else
+            x = 0;
         move = new Vector2(x, y);
         move.Normalize();
         rb2d.AddRelativeForce(move * speed);
@@ -39,7 +53,7 @@ public class Player : MonoBehaviour {
     {
         if(other.gameObject.tag == "Enemy" || other.gameObject.tag == "ShootingEnemy")
         {
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(ControllerConfig[7][0])|| Input.GetKeyDown(ControllerConfig[7][1]))
             {
                 if (Time.time > timeOfLastAttack + secondsBetweenAttacks)
                 {
@@ -56,7 +70,7 @@ public class Player : MonoBehaviour {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "ShootingEnemy")
         {
             Stats enemyStats = other.gameObject.GetComponent<Stats>();
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(ControllerConfig[7][0]) || Input.GetKeyDown(ControllerConfig[7][1]))
             {
                 if (Time.time > timeOfLastAttack + secondsBetweenAttacks)
                 {

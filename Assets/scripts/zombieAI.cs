@@ -2,7 +2,8 @@
 using System;
 using System.Collections;
 
-public class zombieAI : MonoBehaviour {
+public class zombieAI : Keybinds
+{
     public float speed = 100.0f;
     public GameObject master;
     public float stayaway = 2;
@@ -38,7 +39,7 @@ public class zombieAI : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(ControllerConfig[5][0]) || Input.GetKeyDown(ControllerConfig[5][1]))
         {
             gosomewhere = false;
         }
@@ -59,11 +60,15 @@ public class zombieAI : MonoBehaviour {
                 }
                 for (int i = 0; i < shootingenemies.Length; i++)
                 {
-                    if (CEdist > Vector2.Distance(shootingenemies[i].transform.position, transform.position))
-                    {
-                        closestenemy = enemies[i];
-                        CEdist = Vector2.Distance(shootingenemies[i].transform.position, transform.position);
+                    try {
+                        if (CEdist > Vector2.Distance(shootingenemies[i].transform.position, transform.position))
+                        {
+                            closestenemy = enemies[i];
+                            CEdist = Vector2.Distance(shootingenemies[i].transform.position, transform.position);
+                        }
                     }
+                    catch(IndexOutOfRangeException)
+                    { }
                 }
             }
             if (attackrange > CEdist)
@@ -106,7 +111,7 @@ public class zombieAI : MonoBehaviour {
         }
         else
         {
-            if(Input.GetMouseButton(0))
+            if(Input.GetKeyDown(ControllerConfig[6][0]) || Input.GetKeyDown(ControllerConfig[6][1]))
             {                
                 gosomewhere = true;
                 float goX = Input.mousePosition.x;
