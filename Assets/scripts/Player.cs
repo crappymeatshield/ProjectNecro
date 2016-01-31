@@ -49,6 +49,10 @@ public class Player : Keybinds
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            Application.LoadLevel(1);
+        }
         rb2d.velocity = Vector2.zero;
         //float x = Input.GetAxis("Horizontal");
         float y=0;
