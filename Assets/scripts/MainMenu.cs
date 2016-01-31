@@ -67,12 +67,12 @@ public class MainMenu : Keybinds
     void OnGUI()
     {
         fontguistyle.alignment = TextAnchor.MiddleCenter;
-        fontguistyle.normal.textColor = new Color(0.455f, 0.196f, 0.53f, 1); //116, 50, 135
+        fontguistyle.normal.textColor = new Color(0.26f, 0.11f, 0.306f, 1); //116, 50, 135   67,29,78
         fontguistyle.hover.textColor = Color.yellow;
         fontguistyle.fontStyle = FontStyle.Bold;
         fontguistyle.wordWrap = true;
         
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), titlescreen);
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height*1.05f), titlescreen);
         switch (menu)
         {
             case "Main":
@@ -83,7 +83,6 @@ public class MainMenu : Keybinds
                 if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.1f), "Play Game", fontguistyle))
                 {
                     Application.LoadLevel(1);
-                    print("jk no gayME to plauge");
                 }
                 if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.35f, Screen.width * 0.6f, Screen.height * 0.1f), "Intstructions", fontguistyle))
                 {
@@ -108,11 +107,11 @@ public class MainMenu : Keybinds
                 GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "The Story So Far", fontguistyle);
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);                
                 GUI.Label(new Rect(Screen.width * 0.05f, Screen.height * 0.2f, Screen.width * 0.9f, Screen.height * 0.45f), "At the Dawn of Time, the Oldest Gods created Life, and in doing so created Death as well. Life was powerful and Death inviolable…\nUntil this asshole showed up…\n\nYou are the Necromancer, having discovered the ritual to resurrect dead bodies using magical ingredients found throughout the land.  Your ultimate goal is to conquer the world, but first let’s focus on the surrounding areas, ok?  Start with Old Harris Heckelberry’s farm and work your way up to the nearby cave systems in the mountains.  You have a lot to learn before you’re ready for anything bigger than the average chicken. Good Luck.", fontguistyle);
-                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.7f, Screen.width * 0.6f, Screen.height * 0.1f), "KeyBindings", fontguistyle))
+                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.775f, Screen.width * 0.6f, Screen.height * 0.1f), "KeyBindings", fontguistyle))
                 {
                     menu = "Keybinds";
                 }
-                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.85f, Screen.width * 0.6f, Screen.height * 0.1f), "Main Menu", fontguistyle))
+                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.9f, Screen.width * 0.6f, Screen.height * 0.1f), "Main Menu", fontguistyle))
                 {
                     menu = "Main";
                 }
@@ -173,7 +172,7 @@ public class MainMenu : Keybinds
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 1.0f);
                 GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "Credits", fontguistyle);
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);
-                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.6f), "Programmers: Brent Austin, Kevin Craddock, Matthew Erickson, Russel Erickson, David Schousen\nGraphic Designers: Alana Erickson, Angelo Mercado, David Schousen\nStory: Kevin Craddock, Daniel Decker ", fontguistyle);
+                GUI.Label(new Rect(Screen.width * 0.1f, Screen.height * 0.2f, Screen.width * 0.8f, Screen.height * 0.6f), "Programmers:\nBrent Austin, Kevin Craddock, Matthew Erickson, Russell Erickson, David Schousen\n\nGraphic Designers:\nAlana Erickson, Angelo Mercado, David Schousen\n\nStory:\nKevin Craddock, Daniel Decker\n\nMusic:\nStephen Udell", fontguistyle);
                 if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.85f, Screen.width * 0.6f, Screen.height * 0.1f), "Main Menu", fontguistyle))
                 {
                     menu = "Main";
@@ -181,11 +180,6 @@ public class MainMenu : Keybinds
                 break;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-	    
-	}
     public void SetFontsizeBasedonElementSize(float elementheight, ref GUIStyle fontforsizing, float scaleby)
     {
         int tempfontsize = fontforsizing.fontSize;
