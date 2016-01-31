@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor.SceneManagement;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -64,6 +65,8 @@ public class MainMenu : Keybinds
     void OnGUI()
     {
         fontguistyle.alignment = TextAnchor.MiddleCenter;
+        fontguistyle.normal.textColor = Color.white;
+        fontguistyle.hover.textColor = Color.yellow;
         switch (menu)
         {
             case "Main":
@@ -164,7 +167,7 @@ public class MainMenu : Keybinds
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 1.0f);
                 GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "Credits", fontguistyle);
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);
-                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.6f), "Bear Coded this game in his sleep.\nIt would be better he he would have coded it while awake.", fontguistyle);
+                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.6f), "Bear Coded this game in his sleep.\nIt would be better if he would have coded it while awake.", fontguistyle);
                 if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.85f, Screen.width * 0.6f, Screen.height * 0.1f), "Main Menu", fontguistyle))
                 {
                     menu = "Main";

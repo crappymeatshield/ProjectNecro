@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Player : Keybinds
 {
@@ -10,12 +11,31 @@ public class Player : Keybinds
     public float attackLengthAway = 3.0f;
     public GameObject enemy;
     public GameObject shootingEnemy;
+	public GameObject childCamera;
     public Stats stats;
     public float timeOfLastAttack = 0;
     public float secondsBetweenAttacks = 1.0f;
+	public List<GameObject> zombieHorde;
+
+	void spawnHorde()
+	{
+		for(int i = 0; i < zombieHorde.Count; i++)
+		{
+			Instantiate(zombieHorde[i],new Vector3(gameObject.transform.position.x + i, 
+				gameObject.transform.position.y + i, gameObject.transform.position.z),Quaternion.identity);
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
+		//makes camera follow you, resizes camera
+		childCamera = GameObject.Find("Main Camera");
+		childCamera.transform.parent = gameObject.transform;
+		childCamera.transform.localPosition = new Vector3(0,0,-3);
+		childCamera.GetComponent<Camera>().orthographicSize = 5f;
+		//
+		spawnHorde();//spawns followers
+		gameObject.transform.position += new Vector3(0,0,-1);
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         shootingEnemy = GameObject.FindGameObjectWithTag("ShootingEnemy");
         rb2d = GetComponent<Rigidbody2D>();

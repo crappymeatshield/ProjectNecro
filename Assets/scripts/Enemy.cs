@@ -5,7 +5,7 @@ public class Enemy: MonoBehaviour
 {
     public bool playerInSight;
     public GameObject player;
-    public float sightLengthAway = 15.0f;
+    public float sightLengthAway = 3.0f;
     private Stats health;
     public GameObject enemy;
     public GameObject shootingEnemy;
@@ -14,7 +14,7 @@ public class Enemy: MonoBehaviour
     public float secondsBetweenArrows = 2.0f;
     public Rigidbody2D rb2d;
     public float lengthAway = 0.5f;
-    public float shootingLengthAway = 10.0f;
+    public float shootingLengthAway = 2.0f;
     Vector2 follow;
     public float speed = 100.0f;
     public Stats stats;
@@ -30,12 +30,14 @@ public class Enemy: MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		print("enemy start = "+ gameObject.name);
         player = GameObject.FindGameObjectWithTag("Player");
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<Stats>();
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         shootingEnemy = GameObject.FindGameObjectWithTag("ShootingEnemy");
         stats = GetComponent<Stats>();
         SetStats();
+		print("Health = " + stats.health);
         rb2d = GetComponent<Rigidbody2D>();
         arrow = GetComponent<Rigidbody2D>();
     }
