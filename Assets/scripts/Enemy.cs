@@ -78,8 +78,11 @@ public class Enemy: MonoBehaviour
                     closestenemy = zombies[i];
                     CEdist = Vector2.Distance(zombies[i].transform.position, transform.position);
                 }
+//<<<<<<< HEAD
                // Debug.Log(closestenemy.ToString());
               //  Debug.Log(CEdist.ToString());
+//=======
+//>>>>>>> origin/master
             }
             if(CEdist > Vector2.Distance(player.transform.position, transform.position))
             {
@@ -178,14 +181,23 @@ public class Enemy: MonoBehaviour
 		
         if(this.tag == "Enemy")
         {
+//<<<<<<< HEAD
 			stats.health = 60 + ((Random.Range(statModifiers[0].min,statModifiers[0].max)) * 5);
 			stats.strength = 55+ Random.Range(statModifiers[1].min,statModifiers[1].max);
 			stats.defense = 40+ Random.Range(statModifiers[2].min,statModifiers[2].max);
 			stats.magic = 15+ Random.Range(statModifiers[3].min,statModifiers[3].max);
+////=======
+            stats.maxHealth = 60;
+            stats.health = stats.maxHealth;
+            stats.strength = 55;
+            stats.defense = 40;
+            stats.magic = 15;
+//>>>>>>> origin/master
         }
         else
         {
-            stats.health = 40;
+            stats.maxHealth = 40;
+            stats.health = stats.maxHealth;
             stats.strength = 40;
             stats.defense = 25;
             stats.magic = 30;

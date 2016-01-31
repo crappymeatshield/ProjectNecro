@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class Keybinds : MonoBehaviour {
     
     public static KeyCode[][] ControllerConfig;
+    public static List<Corpse> corpseList = new List<Corpse>();
+    public static List<Item> itemList = new List<Item>();
     //public KeyCode up1;
     //public KeyCode up2;
     //public KeyCode down1;
