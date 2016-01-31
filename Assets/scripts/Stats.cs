@@ -14,7 +14,7 @@ public class Stats : MonoBehaviour
 	public bool isDead;
     public GameObject corpse;
     public GameObject corpseClone;
-    public Stats stats;
+   // public Stats stats;
 //=======
     public int maxHealth;
    // public GameObject corpse;
@@ -49,26 +49,39 @@ public class Stats : MonoBehaviour
 //>>>>>>> origin/master
             Vector3 deadObj = this.gameObject.transform.position;
             String lifeTag = this.gameObject.tag;
+			/*
             if (lifeTag == "Enemy" || lifeTag == "ShootingEnemy")
             {
 //<<<<<<< HEAD
 				GameObject corpseClone = (GameObject)Instantiate(corpse, deadObj + new Vector3(0,0,0), transform.rotation);
-			}
+			}*/
 //=======
             //Vector2 deadObj = this.gameObject.transform.position;
-            lifeTag = this.gameObject.tag;
+            //lifeTag = this.gameObject.tag;
             if (lifeTag == "Enemy" || lifeTag == "ShootingEnemy")
             {
-                corpseClone = (GameObject)Instantiate(corpse, deadObj, transform.rotation);
+                //corpseClone = (GameObject)Instantiate(corpse, deadObj, transform.rotation);
 //>>>>>>> origin/master
 //=======
-                Stats c = this.gameObject.GetComponent<Stats>();
+				//Corpse tempCorpse = corpse.GetComponent<Corpse>();
+                Stats c = gameObject.GetComponent<Stats>();
 				corpseClone = (GameObject)Instantiate(corpse, deadObj, transform.rotation);
-                corpseClone.gameObject.GetComponent<Corpse>().lifeTag = lifeTag;
+				//*
+                corpseClone.gameObject.GetComponent<Corpse>().lifeTag = c.lifeTag;
                 corpseClone.gameObject.GetComponent<Corpse>().maxHealth = c.maxHealth;
                 corpseClone.gameObject.GetComponent<Corpse>().strength = c.strength;
                 corpseClone.gameObject.GetComponent<Corpse>().defense = c.defense;
                 corpseClone.gameObject.GetComponent<Corpse>().magic = c.magic;
+             //   */
+				/*
+				tempCorpse.lifeTag = c.lifeTag;
+				tempCorpse.maxHealth = c.maxHealth;
+				tempCorpse.strength = c.strength;
+				tempCorpse.defense = c.defense;
+				tempCorpse.magic = c.magic;
+				corpse = (GameObject)Instantiate(corpse, deadObj, transform.rotation);
+				*/
+
 //>>>>>>> origin/master
             }
             try
@@ -76,7 +89,7 @@ public class Stats : MonoBehaviour
                 Destroy(this.gameObject);
             }
             catch (Exception)
-            { }
+			{ print("Enemy not being destroyed");}
         }
     }
 

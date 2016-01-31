@@ -1,0 +1,43 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+# Conflicts:
+#	Assets/scripts/Enemy.cs
+#	Assets/scripts/Player.cs
+#	Assets/scripts/Stats.cs
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 7 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	new file:   Assets/CaveMap.unity
+#	new file:   Assets/FarmMap.unity
+#	new file:   Assets/ForestMap.unity
+#	new file:   Assets/Images/Cave Bear.png
+#	new file:   Assets/Images/Zombie Cave Bear.png
+#	new file:   Assets/Images/Zombie Forest Wolf foward Idle.png
+#	modified:   Assets/prefabs/corpse.prefab
+#	modified:   Assets/scripts/Corpse.cs
+#	modified:   Assets/scripts/Enemy.cs
+#	new file:   Assets/scripts/Item.cs
+#	modified:   Assets/scripts/Keybinds.cs
+#	modified:   Assets/scripts/MainMenu.cs
+#	modified:   Assets/scripts/Player.cs
+#	modified:   Assets/scripts/Stats.cs
+#	modified:   Assets/scripts/WorldMapGui.cs
+#	deleted:    Assets/zombieAiTest.unity
+#	deleted:    Assets/zombieAiTest.unity.meta
+#	modified:   ProjectSettings/EditorBuildSettings.asset
+#
+egf
