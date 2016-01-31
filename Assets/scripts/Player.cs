@@ -40,7 +40,8 @@ public class Player : Keybinds
         shootingEnemy = GameObject.FindGameObjectWithTag("ShootingEnemy");
         rb2d = GetComponent<Rigidbody2D>();
         stats = GetComponent<Stats>();
-        stats.health = 100;
+        stats.maxHealth = 100;
+        stats.health = stats.maxHealth;
         stats.strength = 30;
         stats.defense = 35;
         stats.magic = 50;
@@ -48,6 +49,10 @@ public class Player : Keybinds
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            Application.LoadLevel(1);
+        }
         rb2d.velocity = Vector2.zero;
         //float x = Input.GetAxis("Horizontal");
         float y=0;
@@ -82,6 +87,24 @@ public class Player : Keybinds
                     stats.health += 10;
                 }
             }
+        }
+        else if(other.gameObject.tag == "Corpse")
+        {
+            Corpse c = other.gameObject.GetComponent<Corpse>();
+            Corpse corpse = new Corpse(c.lifeTag, c.maxHealth, c.strength, c.defense, c.magic);
+            corpseList.Add(corpse);
+            Destroy(other.gameObject);
+            foreach(Corpse item in corpseList)
+            {
+                Debug.Log(item.lifeTag + " " + item.maxHealth + " " + item.strength + " " + item.defense + " " + item.magic);
+            }
+        }
+        else if(other.gameObject.tag == "Item")
+        {
+            Item i = other.gameObject.GetComponent<Item>();
+            Item item = new Item(i.nam, i.desc, i.quantity, i.goldValue);
+            itemList.Add(item);
+            Destroy(other.gameObject);
         }
     }
 
