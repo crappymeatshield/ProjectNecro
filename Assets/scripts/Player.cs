@@ -83,6 +83,20 @@ public class Player : Keybinds
                 }
             }
         }
+        else if(other.gameObject.tag == "Corpse")
+        {
+            Corpse c = other.gameObject.GetComponent<Corpse>();
+            Corpse corpse = new Corpse(c.lifeTag, c.maxHealth, c.strength, c.defense, c.magic);
+            corpseList.Add(corpse);
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "Item")
+        {
+            Item i = other.gameObject.GetComponent<Item>();
+            Item item = new Item(i.nam, i.desc, i.quantity, i.goldValue);
+            itemList.Add(item);
+            Destroy(other.gameObject);
+        }
     }
 
     void OnTriggerStay2D(Collider2D other)
