@@ -14,7 +14,7 @@ public class WorldMapGui : MonoBehaviour {
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Background);
         if (GUI.Button(new Rect(Screen.width * 0.45f, Screen.height*0.05f, Screen.width * 0.525f, Screen.height * 0.425f), "Cave", fontguistyle))
         {
-            Application.LoadLevel(3);
+            Application.LoadLevel(4);
         }
         if (GUI.Button(new Rect(Screen.width * 0.265f, Screen.height * 0.21f, Screen.width * 0.11f, Screen.height * 0.15f), "Base", fontguistyle))
         {
@@ -26,7 +26,7 @@ public class WorldMapGui : MonoBehaviour {
         }
         if (GUI.Button(new Rect(Screen.width * 0.45f, Screen.height * 0.475f, Screen.width * 0.525f, Screen.height * 0.425f), "Forest", fontguistyle))
         {
-            Application.LoadLevel(3);
+            Application.LoadLevel(5);
         }
     }
     public void SetFontsizeBasedonElementSize(float elementheight, ref GUIStyle fontforsizing, float scaleby)
