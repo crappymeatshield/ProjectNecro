@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy: MonoBehaviour
 {
@@ -26,18 +27,37 @@ public class Enemy: MonoBehaviour
     private float CEdist = 0.0f;
     public float timeOfLastClosestCheck = 0f;
     public float secondsBetweenClosestCheck = 5.0f;
+	public List<randomModifiers> statModifiers = new List<randomModifiers>(4);//health, strength, defense, magic
+
+	[System.Serializable]//makes it show up in editor
+	public class randomModifiers
+	{
+		public int min, max;
+
+		randomModifiers(int mini, int maxi)
+		{
+			min = mini;
+			max = maxi;
+		}
+
+		randomModifiers()
+		{
+			min = 0;
+			max = 1;
+		}
+	}
 
     // Use this for initialization
     void Start()
     {
-		print("enemy start = "+ gameObject.name);
+		//print("enemy start = "+ gameObject.name);
         player = GameObject.FindGameObjectWithTag("Player");
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<Stats>();
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         shootingEnemy = GameObject.FindGameObjectWithTag("ShootingEnemy");
         stats = GetComponent<Stats>();
         SetStats();
-		print("Health = " + stats.health);
+		//print("Health = " + stats.health);
         rb2d = GetComponent<Rigidbody2D>();
         arrow = GetComponent<Rigidbody2D>();
     }
@@ -58,6 +78,11 @@ public class Enemy: MonoBehaviour
                     closestenemy = zombies[i];
                     CEdist = Vector2.Distance(zombies[i].transform.position, transform.position);
                 }
+//<<<<<<< HEAD
+               // Debug.Log(closestenemy.ToString());
+              //  Debug.Log(CEdist.ToString());
+//=======
+//>>>>>>> origin/master
             }
             if(CEdist > Vector2.Distance(player.transform.position, transform.position))
             {
@@ -153,13 +178,21 @@ public class Enemy: MonoBehaviour
 
     void SetStats()
     {
+		
         if(this.tag == "Enemy")
         {
+//<<<<<<< HEAD
+			stats.health = 60 + ((Random.Range(statModifiers[0].min,statModifiers[0].max)) * 5);
+			stats.strength = 55+ Random.Range(statModifiers[1].min,statModifiers[1].max);
+			stats.defense = 40+ Random.Range(statModifiers[2].min,statModifiers[2].max);
+			stats.magic = 15+ Random.Range(statModifiers[3].min,statModifiers[3].max);
+////=======
             stats.maxHealth = 60;
             stats.health = stats.maxHealth;
             stats.strength = 55;
             stats.defense = 40;
             stats.magic = 15;
+//>>>>>>> origin/master
         }
         else
         {
