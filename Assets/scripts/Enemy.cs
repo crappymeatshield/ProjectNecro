@@ -27,8 +27,25 @@ public class Enemy: MonoBehaviour
     private float CEdist = 0.0f;
     public float timeOfLastClosestCheck = 0f;
     public float secondsBetweenClosestCheck = 5.0f;
-	//public List<float> statModifiers = new List<float>(4);
+	public List<randomModifiers> statModifiers = new List<randomModifiers>(4);//health, strength, defense, magic
 
+	[System.Serializable]//makes it show up in editor
+	public class randomModifiers
+	{
+		public int min, max;
+
+		randomModifiers(int mini, int maxi)
+		{
+			min = mini;
+			max = maxi;
+		}
+
+		randomModifiers()
+		{
+			min = 0;
+			max = 1;
+		}
+	}
 
     // Use this for initialization
     void Start()
@@ -158,12 +175,13 @@ public class Enemy: MonoBehaviour
 
     void SetStats()
     {
+		
         if(this.tag == "Enemy")
         {
-            stats.health = 60;
-            stats.strength = 55;
-            stats.defense = 40;
-            stats.magic = 15;
+			stats.health = 60 + ((Random.Range(statModifiers[0].min,statModifiers[0].max)) * 5);
+			stats.strength = 55+ Random.Range(statModifiers[1].min,statModifiers[1].max);
+			stats.defense = 40+ Random.Range(statModifiers[2].min,statModifiers[2].max);
+			stats.magic = 15+ Random.Range(statModifiers[3].min,statModifiers[3].max);
         }
         else
         {
