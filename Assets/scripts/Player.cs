@@ -28,11 +28,14 @@ public class Player : Keybinds
 
 	// Use this for initialization
 	void Start () {
+		//makes camera follow you, resizes camera
 		childCamera = GameObject.Find("Main Camera");
 		childCamera.transform.parent = gameObject.transform;
 		childCamera.transform.localPosition = new Vector3(0,0,-3);
 		childCamera.GetComponent<Camera>().orthographicSize = 5f;
-		spawnHorde();
+		//
+		spawnHorde();//spawns followers
+		gameObject.transform.position += new Vector3(0,0,-1);
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         shootingEnemy = GameObject.FindGameObjectWithTag("ShootingEnemy");
         rb2d = GetComponent<Rigidbody2D>();

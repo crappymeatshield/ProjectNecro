@@ -102,45 +102,45 @@ public class GenerateMap : MonoBehaviour
 	void SetTileLocations()//initializes list with default locations of 9 Tiles
 	{
 		initializeList(TileLocations);
-		TileLocations[0] = new Vector3(-6,6,0);
-		TileLocations[1] = new Vector3(0,6,0);
-		TileLocations[2] = new Vector3(6,6,0);
-		TileLocations[3] = new Vector3(-6,0,0);
+		TileLocations[0] = new Vector3(-12,12,0);
+		TileLocations[1] = new Vector3(0,12,0);
+		TileLocations[2] = new Vector3(12,12,0);
+		TileLocations[3] = new Vector3(-12,0,0);
 		TileLocations[4] = new Vector3(0,0,0);
-		TileLocations[5] = new Vector3(6,0,0);
-		TileLocations[6] = new Vector3(-6,-6,0);
-		TileLocations[7] = new Vector3(0,-6,0);
-		TileLocations[8] = new Vector3(6,-6,0);
+		TileLocations[5] = new Vector3(12,0,0);
+		TileLocations[6] = new Vector3(-12,-12,0);
+		TileLocations[7] = new Vector3(0,-12,0);
+		TileLocations[8] = new Vector3(12,-12,0);
 	}
 
 	void SetMapObjectLocations()//initializes locations of 25 spawn points on tile 
 	{
 		initializeList(MapObjectLocations);
-		MapObjectLocations[0] = new Vector3(-2.4f,2.4f,-1);
-		MapObjectLocations[1] = new Vector3(-1.2f,2.4f,-1);
-		MapObjectLocations[2] = new Vector3(0f,2.4f,-1);
-		MapObjectLocations[3] = new Vector3(1.2f,2.4f,-1);
-		MapObjectLocations[4] = new Vector3(2.4f,2.4f,-1);
-		MapObjectLocations[5] = new Vector3(-2.4f,1.2f,-1);
-		MapObjectLocations[6] = new Vector3(-1.2f,1.2f,-1);
-		MapObjectLocations[7] = new Vector3(0f,1.2f,-1);
-		MapObjectLocations[8] = new Vector3(1.2f,1.2f,-1);
-		MapObjectLocations[9] = new Vector3(2.4f,1.2f,-1);
-		MapObjectLocations[10] = new Vector3(-2.4f,0f,-1);
-		MapObjectLocations[11] = new Vector3(-1.2f,0f,-1);
+		MapObjectLocations[0] = new Vector3(-4.8f,4.8f,-1);
+		MapObjectLocations[1] = new Vector3(-2.4f,4.8f,-1);
+		MapObjectLocations[2] = new Vector3(0f,4.8f,-1);
+		MapObjectLocations[3] = new Vector3(2.4f,4.8f,-1);
+		MapObjectLocations[4] = new Vector3(4.8f,4.8f,-1);
+		MapObjectLocations[5] = new Vector3(-4.8f,2.4f,-1);
+		MapObjectLocations[6] = new Vector3(-2.4f,2.4f,-1);
+		MapObjectLocations[7] = new Vector3(0f,2.4f,-1);
+		MapObjectLocations[8] = new Vector3(2.4f,2.4f,-1);
+		MapObjectLocations[9] = new Vector3(4.8f,2.4f,-1);
+		MapObjectLocations[10] = new Vector3(-4.8f,0f,-1);
+		MapObjectLocations[11] = new Vector3(-2.4f,0f,-1);
 		MapObjectLocations[12] = new Vector3(0f,0f,-1);
-		MapObjectLocations[13] = new Vector3(1.2f,0f,-1);
-		MapObjectLocations[14] = new Vector3(2.4f,0f,-1);
-		MapObjectLocations[15] = new Vector3(-2.4f,-1.2f,-1);
-		MapObjectLocations[16] = new Vector3(-1.2f,-1.2f,-1);
-		MapObjectLocations[17] = new Vector3(0f,-1.2f,-1);
-		MapObjectLocations[18] = new Vector3(1.2f,-1.2f,-1);
-		MapObjectLocations[19] = new Vector3(2.4f,-1.2f,-1);
-		MapObjectLocations[20] = new Vector3(-2.4f,-2.4f,-1);
-		MapObjectLocations[21] = new Vector3(-1.2f,-2.4f,-1);
-		MapObjectLocations[22] = new Vector3(0f,-2.4f,-1);
-		MapObjectLocations[23] = new Vector3(1.2f,-2.4f,-1);
-		MapObjectLocations[24] = new Vector3(2.4f,-2.4f,-1);
+		MapObjectLocations[13] = new Vector3(2.4f,0f,-1);
+		MapObjectLocations[14] = new Vector3(4.8f,0f,-1);
+		MapObjectLocations[15] = new Vector3(-4.8f,-2.4f,-1);
+		MapObjectLocations[16] = new Vector3(-2.4f,-2.4f,-1);
+		MapObjectLocations[17] = new Vector3(0f,-2.4f,-1);
+		MapObjectLocations[18] = new Vector3(2.4f,-2.4f,-1);
+		MapObjectLocations[19] = new Vector3(4.8f,-2.4f,-1);
+		MapObjectLocations[20] = new Vector3(-4.8f,-4.8f,-1);
+		MapObjectLocations[21] = new Vector3(-2.4f,-4.8f,-1);
+		MapObjectLocations[22] = new Vector3(0f,-4.8f,-1);
+		MapObjectLocations[23] = new Vector3(2.4f,-4.8f,-1);
+		MapObjectLocations[24] = new Vector3(4.8f,-4.8f,-1);
 	}
 		
 
