@@ -41,6 +41,11 @@ public class zombieAI : Keybinds
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+		if(master == null)
+		{
+			master = GameObject.FindGameObjectWithTag("Player");
+			control = master.GetComponent<ZecromancerController>();
+		}
         if(Input.GetKeyDown(ControllerConfig[5][0]) || Input.GetKeyDown(ControllerConfig[5][1]))
         {
             gosomewhere = false;

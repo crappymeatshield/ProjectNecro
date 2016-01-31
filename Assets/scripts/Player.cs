@@ -11,6 +11,7 @@ public class Player : Keybinds
     public float attackLengthAway = 3.0f;
     public GameObject enemy;
     public GameObject shootingEnemy;
+//<<<<<<< HEAD
 	public GameObject childCamera;
     public Stats stats;
     public float timeOfLastAttack = 0;
@@ -26,6 +27,16 @@ public class Player : Keybinds
 		}
 	}
 
+//=======
+    public GameObject castbar;
+    public GameObject Icastbar;
+    //public Stats stats;
+   // public float timeOfLastAttack = 0;
+    //public float secondsBetweenAttacks = 1.0f;
+    private bool teleporting = false;
+    private float timestartteleport = 0.0f;
+    private float teleportcasttime = 4.0f;
+//>>>>>>> origin/master
 	// Use this for initialization
 	void Start () {
 		//makes camera follow you, resizes camera
@@ -48,25 +59,59 @@ public class Player : Keybinds
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            teleporting = true;
+            timestartteleport = Time.time;
+            Vector3 pos = new Vector3(transform.position.x, transform.position.y+0.75f, transform.position.z);
+            Icastbar = (GameObject)Instantiate(castbar, pos, Quaternion.identity);
+        }
         rb2d.velocity = Vector2.zero;
         //float x = Input.GetAxis("Horizontal");
         float y=0;
         if (Input.GetKey(ControllerConfig[0][0]) || Input.GetKey(ControllerConfig[0][1]))
+        {
             y = 1;
+            teleporting = false;
+        }
         else if (Input.GetKey(ControllerConfig[1][0]) || Input.GetKey(ControllerConfig[1][1]))
+        {
             y = -1;
+            teleporting = false;
+        }
         else
             y = 0;
         float x = 0; //Input.GetAxis("Vertical");
         if (Input.GetKey(ControllerConfig[2][0]) || Input.GetKey(ControllerConfig[2][1]))
+        {
             x = 1;
+            teleporting = false;
+        }
         else if (Input.GetKey(ControllerConfig[3][0]) || Input.GetKey(ControllerConfig[3][1]))
+        {
             x = -1;
+            teleporting = false;
+        }
         else
             x = 0;
         move = new Vector2(x, y);
         move.Normalize();
         rb2d.AddRelativeForce(move * speed);
+        if (Icastbar != null && !teleporting)
+            Destroy(Icastbar);
+        if(teleporting)
+        {
+            float timeleft = (timestartteleport + teleportcasttime) - Time.time;
+            float timepercent = timeleft * 25;
+            float scaleofbarx = 5 * (timepercent * 0.01f);
+            Vector3 scalebar = new Vector3(scaleofbarx, 1, 1);
+            Icastbar.transform.localScale = scalebar;
+            if (Time.time>=timestartteleport+teleportcasttime)
+            {
+                Application.LoadLevel(1);
+            }
+
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

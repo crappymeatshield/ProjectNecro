@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy: MonoBehaviour
 {
@@ -26,18 +27,20 @@ public class Enemy: MonoBehaviour
     private float CEdist = 0.0f;
     public float timeOfLastClosestCheck = 0f;
     public float secondsBetweenClosestCheck = 5.0f;
+	//public List<float> statModifiers = new List<float>(4);
+
 
     // Use this for initialization
     void Start()
     {
-		print("enemy start = "+ gameObject.name);
+		//print("enemy start = "+ gameObject.name);
         player = GameObject.FindGameObjectWithTag("Player");
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<Stats>();
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         shootingEnemy = GameObject.FindGameObjectWithTag("ShootingEnemy");
         stats = GetComponent<Stats>();
         SetStats();
-		print("Health = " + stats.health);
+		//print("Health = " + stats.health);
         rb2d = GetComponent<Rigidbody2D>();
         arrow = GetComponent<Rigidbody2D>();
     }
@@ -58,8 +61,8 @@ public class Enemy: MonoBehaviour
                     closestenemy = zombies[i];
                     CEdist = Vector2.Distance(zombies[i].transform.position, transform.position);
                 }
-                Debug.Log(closestenemy.ToString());
-                Debug.Log(CEdist.ToString());
+               // Debug.Log(closestenemy.ToString());
+              //  Debug.Log(CEdist.ToString());
             }
             if(CEdist > Vector2.Distance(player.transform.position, transform.position))
             {

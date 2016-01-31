@@ -8,9 +8,12 @@ public class Stats : MonoBehaviour
     public int strength; //against defense
     public int defense; //against strength
     public int magic; //player has offensive and enemies have defensive
-    public bool isDead;
     public int health;
+    public String lifeTag;//what tag an enemy was under when it died used for health/stats purposes wwhen reincarnating zombies
+	public bool isDead;
     public GameObject corpse;
+    public GameObject corpseClone;
+    public Stats stats;
 
 	public Stats()
 	{
@@ -25,7 +28,7 @@ public class Stats : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        isDead = false;
+
     }
 
     // Update is called once per frame
@@ -33,12 +36,21 @@ public class Stats : MonoBehaviour
     {
         if (health <= 0)
         {
+//<<<<<<< HEAD
             isDead = true;
             Vector3 deadObj = this.gameObject.transform.position;
             String deadTag = this.gameObject.tag;
             if (deadTag == "Enemy" || deadTag == "ShootingEnemy")
             {
 				GameObject corpseClone = (GameObject)Instantiate(corpse, deadObj + new Vector3(0,0,0), transform.rotation);
+			}
+//=======
+            //Vector2 deadObj = this.gameObject.transform.position;
+            lifeTag = this.gameObject.tag;
+            if (lifeTag == "Enemy" || lifeTag == "ShootingEnemy")
+            {
+                corpseClone = (GameObject)Instantiate(corpse, deadObj, transform.rotation);
+//>>>>>>> origin/master
             }
             try
             {
