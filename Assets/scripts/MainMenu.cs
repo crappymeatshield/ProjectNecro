@@ -172,7 +172,7 @@ public class MainMenu : Keybinds
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 1.0f);
                 GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "Credits", fontguistyle);
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);
-                GUI.Label(new Rect(Screen.width * 0.1f, Screen.height * 0.2f, Screen.width * 0.8f, Screen.height * 0.6f), "Programmers:\nBrent Austin, Kevin Craddock, Matthew Erickson, Russell Erickson, David Schousen\n\nGraphic Designers:\nAlana Erickson, Angelo Mercado, David Schousen\n\nStory:\nKevin Craddock, Daniel Decker\n\nMusic:\nStephen Udell", fontguistyle);
+                GUI.Label(new Rect(Screen.width * 0.1f, Screen.height * 0.2f, Screen.width * 0.8f, Screen.height * 0.6f), "Programmers:\nBrent Austin, Kevin Craddock, Matthew Erickson,\nRussell Erickson, David Schousen\n\nGraphic Designers:\nAlana Erickson, Angelo Mercado, David Schousen\n\nStory:\nKevin Craddock, Daniel Decker\n\nMusic:\nStephen Udell", fontguistyle);
                 if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.85f, Screen.width * 0.6f, Screen.height * 0.1f), "Main Menu", fontguistyle))
                 {
                     menu = "Main";
