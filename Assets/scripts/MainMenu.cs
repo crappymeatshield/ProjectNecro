@@ -129,7 +129,6 @@ public class MainMenu : Keybinds
                             }
                             tempcount++;
                         }
-                        Debug.Log("Detected key code: " + e.keyCode);
                         KeyCode[] tempkeycode = new KeyCode[2];
                         tempkeycode = ControllerConfig[keybindrow];
                         tempkeycode[keybindcol] = e.keyCode;

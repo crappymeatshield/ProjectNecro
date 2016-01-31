@@ -58,8 +58,6 @@ public class Enemy: MonoBehaviour
                     closestenemy = zombies[i];
                     CEdist = Vector2.Distance(zombies[i].transform.position, transform.position);
                 }
-                Debug.Log(closestenemy.ToString());
-                Debug.Log(CEdist.ToString());
             }
             if(CEdist > Vector2.Distance(player.transform.position, transform.position))
             {
@@ -157,14 +155,16 @@ public class Enemy: MonoBehaviour
     {
         if(this.tag == "Enemy")
         {
-            stats.health = 60;
+            stats.maxHealth = 60;
+            stats.health = stats.maxHealth;
             stats.strength = 55;
             stats.defense = 40;
             stats.magic = 15;
         }
         else
         {
-            stats.health = 40;
+            stats.maxHealth = 40;
+            stats.health = stats.maxHealth;
             stats.strength = 40;
             stats.defense = 25;
             stats.magic = 30;
