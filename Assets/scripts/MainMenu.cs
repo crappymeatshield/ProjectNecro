@@ -67,30 +67,31 @@ public class MainMenu : Keybinds
         fontguistyle.alignment = TextAnchor.MiddleCenter;
         fontguistyle.normal.textColor = Color.white;
         fontguistyle.hover.textColor = Color.yellow;
+        fontguistyle.wordWrap = true;
         switch (menu)
         {
             case "Main":
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 1.0f);
                 GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "This is our Title of our gayME", fontguistyle);
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);
-                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.1f), "Plauge gayME", fontguistyle))
+                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.1f), "Play Game", fontguistyle))
                 {
                     Application.LoadLevel(1);
                     print("jk no gayME to plauge");
                 }
-                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.35f, Screen.width * 0.6f, Screen.height * 0.1f), "Introdestructoinions", fontguistyle))
+                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.35f, Screen.width * 0.6f, Screen.height * 0.1f), "Intstructions", fontguistyle))
                 {
                     menu = "Instructions";
                 }
-                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.5f, Screen.width * 0.6f, Screen.height * 0.1f), "Bondageforpianoivory", fontguistyle))
+                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.5f, Screen.width * 0.6f, Screen.height * 0.1f), "Keybindings", fontguistyle))
                 {
                     menu = "Keybinds";
                 }
-                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.65f, Screen.width * 0.6f, Screen.height * 0.1f), "PeepswhodidmakedthisgayMEpourplauaging", fontguistyle))
+                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.65f, Screen.width * 0.6f, Screen.height * 0.1f), "Credits", fontguistyle))
                 {
                     menu = "Credits";
                 }
-                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.8f, Screen.width * 0.6f, Screen.height * 0.1f), "getoutofthegayMeyoucannotplauge", fontguistyle))
+                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.8f, Screen.width * 0.6f, Screen.height * 0.1f), "Quit Game", fontguistyle))
                 {
                     print("noescape");
                     Application.Quit();
@@ -98,10 +99,10 @@ public class MainMenu : Keybinds
                 break;
             case "Instructions":
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 1.0f);
-                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "Operation Maunal for Proper Onion Destruction", fontguistyle);
-                SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);
-                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.45f), "Don't it is aa trap. Also it maybe be a dick.", fontguistyle);
-                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.7f, Screen.width * 0.6f, Screen.height * 0.1f), "Bondageforpianoivory", fontguistyle))
+                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "The Story So Far", fontguistyle);
+                SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);                
+                GUI.Label(new Rect(Screen.width * 0.05f, Screen.height * 0.2f, Screen.width * 0.9f, Screen.height * 0.45f), "At the Dawn of Time, the Oldest Gods created Life, and in doing so created Death as well. Life was powerful and Death inviolable…\nUntil this asshole showed up…\n\nYou are the Necromancer, having discovered the ritual to resurrect dead bodies using magical ingredients found throughout the land.  Your ultimate goal is to conquer the world, but first let’s focus on the surrounding areas, ok?  Start with Old Harris Heckelberry’s farm and work your way up to the nearby cave systems in the mountains.  You have a lot to learn before you’re ready for anything bigger than the average chicken. Good Luck.", fontguistyle);
+                if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.7f, Screen.width * 0.6f, Screen.height * 0.1f), "KeyBindings", fontguistyle))
                 {
                     menu = "Keybinds";
                 }
@@ -166,7 +167,7 @@ public class MainMenu : Keybinds
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 1.0f);
                 GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "Credits", fontguistyle);
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);
-                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.6f), "Bear Coded this game in his sleep.\nIt would be better if he would have coded it while awake.", fontguistyle);
+                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.6f), "Programmers: Brent Austin, Kevin Craddock, Matthew Erickson, Russel Erickson, David Schousen\nGraphic Designers: Alana Erickson, Angelo Mercado, David Schousen\nStory: Kevin Craddock, Daniel Decker ", fontguistyle);
                 if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.85f, Screen.width * 0.6f, Screen.height * 0.1f), "Main Menu", fontguistyle))
                 {
                     menu = "Main";
