@@ -12,6 +12,16 @@ public class Stats : MonoBehaviour
     public int health;
     public GameObject corpse;
 
+	public Stats()
+	{
+		strength = 1;
+		defense = 1;
+		magic = 1;
+		isDead = false;
+		health = 1;
+		corpse = null;
+	}
+
     // Use this for initialization
     void Start()
     {
@@ -24,11 +34,11 @@ public class Stats : MonoBehaviour
         if (health <= 0)
         {
             isDead = true;
-            Vector2 deadObj = this.gameObject.transform.position;
+            Vector3 deadObj = this.gameObject.transform.position;
             String deadTag = this.gameObject.tag;
             if (deadTag == "Enemy" || deadTag == "ShootingEnemy")
             {
-                GameObject corpseClone = (GameObject)Instantiate(corpse, deadObj, transform.rotation);
+				GameObject corpseClone = (GameObject)Instantiate(corpse, deadObj + new Vector3(0,0,0), transform.rotation);
             }
             try
             {

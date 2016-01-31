@@ -20,7 +20,6 @@ public class GenerateMap : MonoBehaviour
 			GOSizeBySquares = size;
 		}
 	}
-
 	[System.Serializable]
 	public class Quadrants//holds info on each large square (Tile)
 	{
@@ -114,7 +113,7 @@ public class GenerateMap : MonoBehaviour
 		TileLocations[8] = new Vector3(6,-6,0);
 	}
 
-	void SetMapObjectLocations()
+	void SetMapObjectLocations()//initializes locations of 25 spawn points on tile 
 	{
 		initializeList(MapObjectLocations);
 		MapObjectLocations[0] = new Vector3(-2.4f,2.4f,-1);
@@ -162,12 +161,6 @@ public class GenerateMap : MonoBehaviour
 
 	void SetTheTerrain(List<Quadrants> quads)
 	{
-		/*  //debugging
-		print("quads.Count = " + quads.Count);
-		for(int i = 0; i < quads.Count; i++)
-		{
-			print(quads[i].mapobs[0].GameObjs.name);
-		}//*/
 		SetMapObjectLocations();
 		List<int> rand;
 		Vector3 loc = new Vector3();
