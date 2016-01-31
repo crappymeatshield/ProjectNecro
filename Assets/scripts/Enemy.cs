@@ -187,11 +187,13 @@ public class Enemy: MonoBehaviour
 			stats.defense = 40+ Random.Range(statModifiers[2].min,statModifiers[2].max);
 			stats.magic = 15+ Random.Range(statModifiers[3].min,statModifiers[3].max);
 ////=======
-            stats.maxHealth = 60;
+			stats.maxHealth = stats.health;
+			/*
             stats.health = stats.maxHealth;
             stats.strength = 55;
             stats.defense = 40;
             stats.magic = 15;
+            */
 //>>>>>>> origin/master
         }
         else
