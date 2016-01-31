@@ -7,6 +7,8 @@ using System.Collections.Generic;
 public class MainMenu : Keybinds
 {
     public GUIStyle fontguistyle = new GUIStyle();
+    public Texture titlescreen;
+    public Texture Titleimage;
     public string menu = "Main";
     private bool editcontrols = false;
     private int keybindrow = 0;
@@ -65,14 +67,18 @@ public class MainMenu : Keybinds
     void OnGUI()
     {
         fontguistyle.alignment = TextAnchor.MiddleCenter;
-        fontguistyle.normal.textColor = Color.white;
+        fontguistyle.normal.textColor = new Color(0.455f, 0.196f, 0.53f, 1); //116, 50, 135
         fontguistyle.hover.textColor = Color.yellow;
+        fontguistyle.fontStyle = FontStyle.Bold;
         fontguistyle.wordWrap = true;
+        
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), titlescreen);
         switch (menu)
         {
             case "Main":
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 1.0f);
-                GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "This is our Title of our gayME", fontguistyle);
+                //GUI.Label(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), "This is our Title of our gayME", fontguistyle);
+                GUI.DrawTexture(new Rect(Screen.width * 0.2f, Screen.height * 0.05f, Screen.width * 0.6f, Screen.height * 0.1f), Titleimage);
                 SetFontsizeBasedonElementSize(Screen.height * 0.1f, ref fontguistyle, 2.0f);
                 if (GUI.Button(new Rect(Screen.width * 0.2f, Screen.height * 0.2f, Screen.width * 0.6f, Screen.height * 0.1f), "Play Game", fontguistyle))
                 {
